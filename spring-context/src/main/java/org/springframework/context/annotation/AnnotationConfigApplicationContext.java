@@ -66,7 +66,8 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	public AnnotationConfigApplicationContext() {
 		// 创建读取加注解的BeanDefinition读取器：将类转化为bd（只读取加注解的）
 		this.reader = new AnnotatedBeanDefinitionReader(this);
-		// 能够扫描一个类、包，并且转换成BeanDefinition
+		// 能够扫描一个类、包，并且转换成BeanDefinition，实际扫描工作不是这个scanner做的
+		// annotationConfigApplicationContext.scan(String... basePackages) 才会使用
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 
